@@ -34,8 +34,31 @@
 // each level will become increasingly harder by the blocks falling faster and faster
 // each level will have a total of 100 blocks (this number may be changed, based on gameplay enjoyment)
 
+document.addEventListener('DOM ContentLoaded', () => { // this fires as soon as the HTML page is loaded so that you dont have to wait for everything (stylesheets, images, etc) to load
+    
+    const grid = document.querySelector('.fallingBlockGrid')
+    let squares = Array.from(document.querySelectorAll('.fallingBlockGrid div'))
+    const width = 10;
 
-let blocks = [square, flat, zee, ess, middleFinger, el, seven]
-console.log(blocks);
+    console.log(squares);
 
-for (i = 0; i < 200)
+let x = "hello World!"
+console.log(x);
+
+
+
+}) 
+
+// const box = [bOne, bTWO];
+// const zee = [zFlat, zUp];
+// const ess = [sFlat, sUp];
+// const midFinger = [midFingFlat, midFingRight, midFingLeft, midFingDown]
+// const el = [lFlat, lRight, lLeft, lDown]
+// const seven = [sevFlat, sevRight, sevLeft,sevDown]
+// const flat = [fUp, fDown]
+
+// const blocks = [box, flat, zee, ess, midFinger, el, seven]
+// console.log(blocks);
+
+// // for (i = 0; i < 152; i++);
+

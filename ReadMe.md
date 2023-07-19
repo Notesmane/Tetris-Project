@@ -10,7 +10,7 @@
 
 ## Resources
 
-    - Youtube
+    - Youtube - https://www.youtube.com/watch?v=rAUn1Lom6dw
     - MDN
     - Markdown Cheatsheet - https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
     - https://app.diagrams.net/ (for wire framing)
