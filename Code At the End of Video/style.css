@@ -97,38 +97,22 @@ header > div {
   width: 30px;
 }
 
-.tetros {
+.blocks {
   background-color: red;
 }
 
-#nextHeader {
-  background-color: #4FC0D0;
-  width: 120px;
-  height: 40px;
-  border: 1px solid #A2FF86;
-  text-align: center;
-  float: left;
-  display: flex;
-  justify-content: center;
-}
-
-.next-block {           /*aka mini-grid */
+.mini-grid {
   width: 120px;
   height: 120px;
-  /* border: 1px solid #A2FF86; */
-  flex-wrap: wrap;
   display: flex;
-  /* float: left;
-  justify-content: center; */
+  flex-wrap: wrap;
   background-color: yellow;
 }
 
-.next-block div {
+.mini-grid div {
   height: 30px;
   width: 30px;
 }
-
-
 
 /* 
 .box {
@@ -166,7 +150,6 @@ header > div {
   justify-content: center;
 }
 
-
 /* #titleBoxes h3 {
   vertical-align: middle;
 } */
@@ -180,19 +163,16 @@ header > div {
   justify-content: center;
 }
 
+#extraBox {
+  width: 160px;
+  height: 200px;
+  border: 1px solid #A2FF86;
+  float: left;
+  display: flex;
+  justify-content: center;
+}
+
 section {
   padding: 40px;
 }
 
-/* .mini-grid {
-  width: 120px;
-  height: 120px;
-  display: flex;
-  flex-wrap: wrap;
-  background-color: yellow;
-}
-
-.mini-grid div {
-  height: 30px;
-  width: 30px;
-} */

@@ -37,12 +37,10 @@ document.addEventListener('DOMContentLoaded', () => { // this fires as soon as t
     
     const grid = document.querySelector('.fallingBlockGrid')
     let squares = Array.from(document.querySelectorAll('.fallingBlockGrid div')) // creates an array directly from this div
-    const scoreDisplay = document.querySelector('#score')
-    const startBtn = document.querySelector('#start-button')
+    const ScoreDisplay = document.querySelector('#score')
+    const StartBtn = document.querySelector('start-button')
     const width = 10 // tells the width of the falling Brick window, this will be used for the shape arrays
-    let nextRandom = 0
-    let timerId
-    let score = 0
+    
     
     // the below declares all of the shapes and their variations by calling their corresponding cells within the falling brick window
     const bed = [
@@ -93,16 +91,18 @@ document.addEventListener('DOMContentLoaded', () => { // this fires as soon as t
 
     const blocks = [bed, box, zee, ess, midFinger, seven, flat]
 
+    
+    let random = Math.floor(Math.random()*blocks.length) // selects a block randomly
+
     let currentPosition = 4 // sets the starting position in the block box
     let currentRotation = 0 
 
-    let random = Math.floor(Math.random()*blocks.length) // selects a block randomly
-    let currentBlock = blocks[random][currentRotation] // calls the first item of a random block from the array of blocks
+    let currentBlock = blocks[random][currentRotation]; // calls the first item of a random block from the array of blocks
 
     // draw the first rotation in the first block
     function draw() {
         currentBlock.forEach(index => { // using this to add the code to each index of the current array
-        squares[currentPosition + index].classList.add('tetros')    
+        squares[currentPosition + index].classList.add('blocks')    
         })
     }
 
@@ -111,12 +111,12 @@ document.addEventListener('DOMContentLoaded', () => { // this fires as soon as t
     // undraws the block
     function unDraw() {
         currentBlock.forEach(index => {
-            squares[currentPosition + index].classList.remove('tetros')
+            squares[currentPosition + index].classList.remove('blocks')
         })
     }
 
     // make the blocks move down every second
-    // timerId = setInterval(moveDown, 800) 
+    timerId = setInterval(moveDown, 800) 
 
     // assign functions to keycodes
     function control(e) { // the e key is becuase the function is waiting for an event to invoke the function
@@ -138,7 +138,6 @@ document.addEventListener('DOMContentLoaded', () => { // this fires as soon as t
         currentPosition += width
         draw()
         freeze()
-        gameOver()
     }
 
     // write a freeze function
@@ -146,13 +145,10 @@ document.addEventListener('DOMContentLoaded', () => { // this fires as soon as t
         if(currentBlock.some(index => squares[currentPosition + index + width].classList.contains('taken'))) {
             currentBlock.forEach(index => squares[currentPosition + index].classList.add('taken'))
             //start a new falling block
-            random = nextRandom
-            nextRandom = Math.floor(Math.random() * blocks.length)
+            random = Math.floor(Math.random() * blocks.length)
             currentBlock = blocks[random][currentRotation]
             currentPosition = 4
             draw()
-            displayShape()
-            addScore()
         }
     }
 
@@ -186,7 +182,7 @@ document.addEventListener('DOMContentLoaded', () => { // this fires as soon as t
     // rotate the block
     function rotate() {
         unDraw()
-        currentRotation ++
+        currentRotation++
         if(currentRotation === currentBlock.length) { //if the current rotation gets to 4, make it go back to 0
             currentRotation = 0 // if current rotation is false
         }
@@ -194,70 +190,9 @@ document.addEventListener('DOMContentLoaded', () => { // this fires as soon as t
         draw()
     }
 
-    // show up-next block in the mini grid display
-    const displaySquares = document.querySelectorAll('.next-block div')
-    const displayWidth = 4
-    let displayIndex = 0
 
-    // the blocks without rotations
-    const nextUpBlocks = [
-        [1, displayWidth+1, displayWidth*2+1, 2], // bed block
-        [0, 1, displayWidth, displayWidth+1], // box block
-        [0, 1, displayWidth+1, displayWidth+2], // zee block
-        [1, 2, displayWidth, displayWidth+1], // ess block
-        [1, width, displayWidth+1, displayWidth+2], // mid finger block
-        [0, 1, displayWidth +1, displayWidth*2+1], // seven block
-        [1, displayWidth+1, displayWidth*2+1, displayWidth*3+1], // flat block
-    ]
 
-    // display the shape in the nextBlock display
-    function displayShape() {
-        //removes any trace of a block from the entire grid
-    displaySquares.forEach(squares => {
-        squares.classList.remove('tetros')
-    })
-    
-    nextUpBlocks[nextRandom].forEach( index => { 
-        displaySquares[displayIndex + index].classList.add('tetros')
-    })
-    }
-    
-    // add functionality to the start button
-    startBtn.addEventListener('click', () =>  {
-        if (timerId) {
-            clearInterval(timerId)
-            timerId = null
-        } else {
-            draw()
-            timerId = setInterval(moveDown, 800)
-            nextRandom = Math.floor(Math.random()*blocks.length)
-            displayShape()
-        }
-    })
 
-    // add score(
-    function addScore() {
-        for(let i = 0; i < 199; i +=width) {
-            const row = [i, i+1, i+2, i+3, i+4, i+5, i+6, i+7, i+8, i+9]
-            if(row.every(index => squares[index].classList.contains('taken'))) {
-                score +=10
-                scoreDisplay.innerHTML = score
-                row.forEach(index => {
-                    squares[index].classList.remove('taken')
-                    squares[index].classList.remove('tetros')
-                })
-                const squaresRemoved = squares.splice(i, width)
-                squares = squaresRemoved.concat(squares)
-                squares.forEach(cell => grid.appendChild(cell))
-            }
-        }
-    }
-    // game over
-    function gameOver() {
-        if(currentBlock.some(index => squares[currentPosition + index].classList.contains('taken'))) {
-            scoreDisplay.innerHTML = 'end'
-            clearInterval(timerId)
-        }
-    }
 
-})
+
+});
