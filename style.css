@@ -1,198 +1,148 @@
 /* Box Model Hack */
 * {
-  box-sizing: border-box;
-}
-
-/* Clear fix hack */
-.clearfix:after {
-     content: ".";
-     display: block;
-     clear: both;
-     visibility: hidden;
-     line-height: 0;
-     height: 0;
-}
-
-.clear {
-    clear: both;
-}
-
-/******************************************
-/* BASE STYLES
-/*******************************************/
+    box-sizing: border-box;
+  }
+  
+  /* Clear fix hack */
+  .clearfix:after {
+       content: ".";
+       display: block;
+       clear: both;
+       visibility: hidden;
+       line-height: 0;
+       height: 0;
+  }
+  
+  .clear {
+      clear: both;
+  }
+  
+  /******************************************
+  /* BASE STYLES
+  /*******************************************/
 
 html {
-  /* height: 800px; */
+    /* height: 800px; */
+    background-image: url('bkimage4.jpg');
+    background-size: cover;
+    background-position: center center;
+
 }
 
 main {
-align-content: start;
-display: flex;
-}
-
-body {
-  background-color: #164B60;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-}
-
-header {
-  background-color: #164B60;
-  /* float: left; */
-  width: 100%;
-  height: 50px;
-  margin-bottom: 10%;
-  padding: 0%;
-  border: none;
-  list-style: none;
-  clear: both;
-  display: flex;
-  justify-content: center;
-}
-
-header > div {
-  background-color: #4FC0D0;
-  border: 1px solid #A2FF86;
-  /* text-align: center; */
-  position: relative;
-  height: 50px;
-  width: 200px;
-  /* margin: 10%; */
-} 
-
-/* main section div {
-  background-color: #4FC0D0;
-} */
-
-#bigTitleBox {
-  background-color: #4FC0D0;
-  width: 302px;
-  height: 80px;
-  border: 1px solid #A2FF86;
-  padding-top: 20px;
-  text-align: center;
-  float: left;
-  display: flex;
-  justify-content: center;
-}
-
-
-
-.fallingBlockGrid{
-  /* background-color: #4FC0D0; */
-  width: 302px;
-  height: 602px;
-  border: 1px solid #A2FF86;
-  background-color: yellow;
-  display: flex; /*these two wrap the divs so they fit into their parent */
-  flex-wrap: wrap;
-  /* padding-top: 20px;
-  text-align: center;
-  float: left;
-  display: flex;
-  justify-content: center; */
-}
-
-.fallingBlockGrid > div {
-  height: 30px;
-  width: 30px;
-}
-
-.tetros {
-  background-color: red;
-}
-
-#nextHeader {
-  background-color: #4FC0D0;
-  width: 120px;
-  height: 40px;
-  border: 1px solid #A2FF86;
-  text-align: center;
-  float: left;
-  display: flex;
-  justify-content: center;
-}
-
-.next-block {           /*aka mini-grid */
-  width: 120px;
-  height: 120px;
-  /* border: 1px solid #A2FF86; */
-  flex-wrap: wrap;
-  display: flex;
-  /* float: left;
-  justify-content: center; */
-  background-color: yellow;
-}
-
-.next-block div {
-  height: 30px;
-  width: 30px;
-}
-
-
-
-/* 
-.box {
-  background-color: blue;
-}
-
-.zee {
-  background-color: green;
-}
-
-.ess {
-  background-color: orange;
-}
-
-.midFinger {
-  background-color: purple;
-}
-
-.seven {
-  background-color: pink;
-}
-
-.flat {
-  background-color: grey;
-} */
-
-#titleBoxes {
-  background-color: #4FC0D0;
-  width: 160px;
-  height: 40px;
-  border: 1px solid #A2FF86;
-  text-align: center;
-  float: left;
-  display: flex;
-  justify-content: center;
-}
-
-
-/* #titleBoxes h3 {
-  vertical-align: middle;
-} */
-
-#lowerBoxes {
-  width: 160px;
-  height: 80px;
-  border: 1px solid #A2FF86;
-  float: left;
-  display: flex;
-  justify-content: center;
+    align-content: start;
+    display: flex;
+    height: 600px;
+    font-size: 24px;
+    display: flex;
+    justify-content: center;
 }
 
 section {
-  padding: 40px;
+    padding: 50px;
 }
 
-/* .mini-grid {
-  width: 120px;
-  height: 120px;
-  display: flex;
-  flex-wrap: wrap;
-  background-color: yellow;
+  body {
+    /* background-image: 'bkimage.png' */
+    /* background-color: #164B60; */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.mini-grid div {
-  height: 30px;
-  width: 30px;
-} */
+
+  header {
+    /* background-color: #164B60; */
+    /* float: left; */
+    /* width: 100px; */
+    height: 150px;
+    margin-bottom: 10%;
+    padding: 0%;
+    border: none;
+    list-style: none;
+    clear: both;
+    display: flex;
+    justify-content: center;
+  }
+
+  /* header > div {
+    background-color: rgb(4, 0, 44);
+    border: 1px solid #A2FF86; 
+    text-align: center; 
+    position: relative;
+    height: 150px;
+    width: 50px;
+    display: flex;
+    justify-content: center;
+    margin: 10%;
+  }  */
+
+  #titleDiv {
+    padding: 10px 0px, 10px, 0px;
+    margin: 0px, 20px, 0px, 20px;
+    background-color: rgb(4, 0, 44);
+    border: 2px ridge rgb(184,69, 178);
+    border-radius: 10px;
+    /* position: relative; */
+    height: 50px;
+    width: 150px;
+    float: left;
+    display: flex;
+    justify-content: center;
+  }
+
+  h1 {
+    color: white;
+  }
+  
+  #help {
+    padding: 10px 0px, 10px, 0px;
+    margin: 0px, 20px, 0px, 20px;
+    /* background-color: rgb(4, 0, 44);
+    border: 2px ridge rgb(184,69, 178);
+    border-radius: 10px; */
+    /* position: relative; */
+    height: 50px;
+    width: 150px;
+    float: left;
+    display: flex;
+    justify-content: center;
+  }
+
+
+  h3 {
+    color: white;
+  }
+
+/* ============================ LINKS ======================= */
+
+
+
+
+  /* main section div {
+    background-color: #4FC0D0;
+  } */
+
+
+  footer div {
+    font-size: 11px;
+    display: flex;
+    justify-content: center;
+    color: rgb(114, 71, 108);
+  }
+
+  a:link {
+    color: white;
+    text-shadow: white 1px 0 5px;
+  }
+
+  a, a:link, a:visited {
+    color: rgb(114, 39, 82);
+  }
+
+  a:hover {
+    color: white;
+    text-shadow: white 1px 0 5px;
+  }
+
+  a:active{
+    color: white;
+  }
