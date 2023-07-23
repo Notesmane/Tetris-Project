@@ -1,0 +1,281 @@
+/* Box Model Hack */
+* {
+    box-sizing: border-box;
+  }
+  
+  /* Clear fix hack */
+  .clearfix:after {
+       content: ".";
+       display: block;
+       clear: both;
+       visibility: hidden;
+       line-height: 0;
+       height: 0;
+  }
+  
+  .clear {
+      clear: both;
+  }
+  
+  /******************************************
+  /* BASE STYLES
+  /*******************************************/
+
+html {
+    /* height: 700px; */
+    background-image: url('bkimage4.jpg');
+    background-size: cover;
+    background-position: center center;
+    color: white;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  height: 550px;
+}
+
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+    /* 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; */
+  }
+
+  a:link {
+    color: white;
+  }
+
+  a:visited {
+    color: white;
+  }
+
+  a:hover {
+    color: white;
+  }
+
+  a:active{
+    color: white;
+  }
+  
+/* =========================================== HEADER CONTENT  */
+
+  header {
+    width: 100%;
+    height: 50px;
+    margin-bottom: 70px;
+    padding: 5px;
+    border: none;
+    list-style: none;
+    clear: both;
+    display: flex;
+    justify-content: center;
+  }
+
+  #titleDiv {
+    padding: 10px 0px, 10px, 0px;
+    margin: 0px, 20px, 0px, 20px;
+    background-color: rgb(4, 0, 44);
+    border: 2px ridge rgb(184,69, 178);
+    border-radius: 10px;
+    /* position: relative; */
+    height: 50px;
+    width: 150px;
+    float: left;
+    display: flex;
+    justify-content: center;
+  }
+
+  #pageSelector {
+    padding: 0px 0px 40px 0px;
+    background-color: rgb(135, 193, 227);
+    border: 2px ridge rgb(184,69, 178);
+    border-radius: 10px;
+    /* position: relative; */
+    height: 20px;
+    width: 80px;
+    float: left;
+    display: flex;
+    justify-content: center;
+  }
+
+/* ============================================ BEGINNING OF MAIN CONTENT */
+
+  #buttons {
+    width: 184;
+  }
+/* 
+  #bigTitleBox {
+    background-color: rgb(4, 0, 44);
+    width: 184px;
+    height: 80px;
+    border: 2px ridge rgb(184,69, 178);
+    padding-top: 20px;
+    text-align: center;
+    float: left;
+    display: flex;
+    justify-content: center;
+  }*/
+
+  .fallingBlockGrid{
+    background-color: rgb(4, 0, 44);/*#0F3442;*/
+    width: 308px;
+    height: 608px;
+    border: 2px ridge rgb(184,69, 178);
+    /* background-color: yellow; */
+    display: flex; /*these two wrap the divs so they fit into their parent */
+    flex-wrap: wrap;
+    /* margin: 0px 0px, 50px, 0px; */
+  }
+
+  .fallingBlockGrid > div {
+    height: 30px;
+    width: 30px;
+    /* border: .5px solid #144457; */
+  }
+
+  .tetros {
+    background-color: red;
+    border: 2px solid rgb(155,190, 220);
+    border-style: inset;
+    /* -moz-box-shadow: 2px 2px 8px 2px rgba(165,165,165,1); */
+    border-radius: 3px;
+  }
+
+  .taken {
+    border: 0px;
+    /* background-color: red; */
+  }
+
+  /* #nextHeader {
+    background-color: rgb(4, 0, 44);
+    width: 184px;
+    height: 44px;
+    border: 2px ridge rgb(184,69, 178);
+    border-style: groove;
+    text-align: center;
+    float: left;
+    display: flex;
+    justify-content: center;
+    border-radius: 5px 5px 0px 0px;
+  } */
+  
+  #nextBox {
+    padding: 0px;
+  }
+
+  .next-block {           /*aka mini-grid */
+    width: 184px;
+    height: 184px;
+    flex-wrap: wrap;
+    display: flex;
+    border: 2px ridge rgb(184,69, 178);
+    background-color: rgb(4, 0, 44);
+  }
+
+  .next-block div {
+    height: 30px;
+    width: 30px;
+    /* border: 2px ridge rgb(184,69, 178); */
+  }
+
+  #contolsTitleBox {
+    background-color: rgba(4, 0, 44, .8);
+    width: 150px;
+    height: 40px;
+    border: 4px ridge rgb(184,69, 178);
+    /* text-align: center; */
+    float: left;
+    display: flex;
+    justify-content: left;
+    border-radius: 5px 5px 0px 0px;
+    margin-bottom: 0px;
+    padding: 10px 10px 10px 7px;
+    /* padding: 0px 0px 70px 0px; */
+  }
+
+  #controlsLowerBox {
+    background-color: rgba(4, 0, 44, .7);
+    width: 440px;
+    height: 320px;
+    border: 4px ridge rgb(184,69, 178);
+    float: left;
+    display: flex;
+    justify-content: left;
+  }
+
+  #rulesTitleBox {
+    background-color: rgba(4, 0, 44, .8);
+    width: 189px;
+    height: 40px;
+    border: 4px ridge rgb(184,69, 178);
+    /* text-align: center; */
+    float: left;
+    display: flex;
+    justify-content: left;
+    border-radius: 5px 5px 0px 0px;
+    margin-bottom: 0px;
+    padding: 10px 10px 10px 7px;
+    /* padding: 0px 0px 70px 0px; */
+  }
+
+  #rulesLowerBox {
+    background-color: rgba(4, 0, 44, .7);
+    width: 374px;
+    height: 138px;
+    border: 4px ridge rgb(184,69, 178);
+    float: left;
+    display: flex;
+    justify-content: center;
+  }
+
+  #singleTitleBox {
+    background-color: rgba(4, 0, 44, .8);
+    width: 244px;
+    height: 40px;
+    border: 4px ridge rgb(184,69, 178);
+    /* text-align: center; */
+    float: left;
+    display: flex;
+    justify-content: left;
+    border-radius: 5px 5px 0px 0px;
+    margin-bottom: 0px;
+    padding: 10px 10px 10px 7px;
+    /* padding: 0px 0px 70px 0px; */
+  }
+
+  #singleLowerBox {
+    background-color: rgba(4, 0, 44, .7);
+    width: 383px;
+    height: 125px;
+    border: 4px ridge rgb(184,69, 178);
+    float: left;
+    display: flex;
+    justify-content: center;
+  }
+
+  section {
+    margin: 20px;
+  }
+
+  footer {
+    padding: 30px;
+  }
+
+  footer div {
+    font-size: 11px;
+    display: flex;
+    justify-content: center;
+    color: rgb(114, 71, 108);
+  }
+
+  a, a:link, a:visited {
+    color: rgb(114, 39, 82);
+  }
+
+  #webLinks {
+    background-color:  rgb(43, 38, 101);
+    margin: 20px 20px 10px 20px;
+    width: 70px;
+    display: flex;
+    justify-content: center;
+    border: 2px ridge rgb(43, 38, 101);
+  }

@@ -38,15 +38,18 @@ document.addEventListener('DOMContentLoaded', () => { // this fires as soon as t
     const grid = document.querySelector('.fallingBlockGrid')
     let squares = Array.from(document.querySelectorAll('.fallingBlockGrid div')) // creates an array directly from this div
     const scoreDisplay = document.querySelector('#score')
+    const computerScoreDisplay = document.querySelector('#computerScore')
     const levelDisplay = document.querySelector('#level')
     const lineDisplay = document.querySelector('#line')
     const startBtn = document.querySelector('#start-button')
+    const musicBtn = document.querySelector('#music-btn')
     const width = 10 // tells the width of the falling Brick window, this will be used for the shape arrays
-    let nextRandom = 0
+    // let nextRandom = 0
     let timerId
     let score = 0
     let level = 1
     let line = 0
+    // let audio = new Audio('musicCyberPunk.mp3');
     const colors = [
         'pink', //#6527BE',
         'white', //#213555',
@@ -56,6 +59,36 @@ document.addEventListener('DOMContentLoaded', () => { // this fires as soon as t
         '#9681EB',
         '#F24C3D',
     ]
+
+    // const music = [
+    //     'musicCyberPunk.mp3',
+    //     'musicMatrix.mp3',
+    //     'musicTrap.mp3',
+    // ]
+
+    // const playButton = document.getElementById('music-btn');
+
+    // function getRandomTrack() {
+    //     const randomIndex = Math.floor(Math.random() * music.length);
+    //     return music[randomIndex];
+    // }
+
+    // function playSound() {
+    //     const soundFile = new Audio(getRandomTrack());
+    //     soundFile.play();
+    // }
+
+    // class Audio {
+    //     constructor(audioFile) {
+    //         this.audioFile = audioFile;
+    //     }
+    //     getAudio() {
+    //         return this.audioFile 
+    //     }
+    // }
+
+    // const music = [("musicCyberPunk.mp3")]
+
  
     // the below declares all of the shapes and their variations by calling their corresponding cells within the falling brick window
     const bed = [
@@ -148,30 +181,32 @@ document.addEventListener('DOMContentLoaded', () => { // this fires as soon as t
     } 
     document.addEventListener('keydown', control) // send the function of contol to the browser when the key goes down
     
-    // move down fucntion
+
+    // move down function
     function moveDown() {
-        unDraw()
-        currentPosition += width
-        draw()
-        freeze()
-        gameOver()
+        if(!currentBlock.some(index => squares[currentPosition + index + width].classList.contains('taken'))) {
+            unDraw()
+            currentPosition += width
+            draw()
+        } else {
+            freeze();
+        }
     }
 
     // write a freeze function
     function freeze() {
-        if(currentBlock.some(index => squares[currentPosition + index + width].classList.contains('taken'))) {
-            currentBlock.forEach(index => squares[currentPosition + index].classList.add('taken'))
-            //start a new falling block
-            random = nextRandom
-            nextRandom = Math.floor(Math.random() * blocks.length)
-            currentBlock = blocks[random][currentRotation]
-            currentPosition = 4
-            draw()
-            displayShape()
-            addScore()
-            // level()
-            // score +=2
-        }
+        currentBlock.forEach(index => squares[currentPosition + index].classList.add('taken'))
+        //start a new block falling
+        random = nextRandom
+        nextRandom = Math.floor(Math.random() * blocks.length)
+        currentBlock = blocks[random][currentRotation]
+        currentPosition = 4
+        draw()
+        displayShape()
+        // scoreBlocks()
+        // playMusic()
+        addScore()
+        gameOver()
     }
 
     // move the blocks left, unless it is at the edge or there is a blockage
@@ -245,6 +280,8 @@ document.addEventListener('DOMContentLoaded', () => { // this fires as soon as t
     nextUpBlocks[nextRandom].forEach( index => { 
         displaySquares[displayIndex + index].classList.add('tetros')
         displaySquares[displayIndex + index].style.backgroundColor = colors[nextRandom]
+        //! score ++
+        //! scoreDisplay.innerHTML = score     need to find a PLACE FOR THESE TO INCREMENT THE SCORE WHEN A BLOCK FALLS
     })
     }
     
@@ -261,6 +298,12 @@ document.addEventListener('DOMContentLoaded', () => { // this fires as soon as t
         }
     })
 
+    // // add music to the game
+    // function playMusic()
+    // music-btn.addEventListener('click', () => {
+    //     audio.play();
+    // })
+
     // add score(
     function addScore() {
         for(let i = 0; i < 199; i +=width) {
@@ -272,6 +315,9 @@ document.addEventListener('DOMContentLoaded', () => { // this fires as soon as t
                 levelDisplay.innerHTML = level
                 lineUp()
                 lineDisplay.innerHTML = line
+                // getRandomNumber()
+                // computerScoreDisplay.innerHTML = computerScore
+                singlePlayerWin()
                 row.forEach(index => {
                     squares[index].classList.remove('taken')
                     squares[index].classList.remove('tetros')
@@ -289,17 +335,42 @@ document.addEventListener('DOMContentLoaded', () => { // this fires as soon as t
             // levelUp()
         }
 
-    // level up function
+    // add to score per falling block
+    // function scoreBlocks() {
+    //     score += 2;
+    // }
+
+
+    // level up function //! if the score jumps over a multiple of 200 then the function doesnt trigger
     function levelUp() {
-        if (score % 200 === 0) {
+        if (score >= 20 && score % 20 === 0) {
         level++;
         }
+        timerId = setInterval(750)
     }
 
     // line up function
     function lineUp() {
         if (score % 10 === 0) {
         line++;
+        }
+    }
+
+    // Create a random number as computers High Score
+    function getRandomNumber(min, max) {
+        return Math.floor(Math.random() * (max - min +1)) + min;
+    }
+
+    let computerScore = getRandomNumber(500,1000);
+    computerScoreDisplay.innerHTML = computerScore
+
+
+
+    // Player 1 mode Win State
+    function singlePlayerWin() {
+        if (score >= computerScore) {
+            alert("Congratulations, you beat the computer!");
+            alert("Would you like to continue playing?");
         }
     }
 
@@ -311,14 +382,46 @@ document.addEventListener('DOMContentLoaded', () => { // this fires as soon as t
         }
     }
 
-    
+    const playButton = document.getElementById('music-btn');
+    const audioPlayer = document.getElementById('audioPlayer');
+
+    playButton.addEventListener('click', function() {
+    if (audioPlayer.paused) {
+        audioPlayer.play();
+        playButton.innerText = 'Pause Audio';
+    } else {
+        audioPlayer.pause();
+        playButton.innerText = 'Play Audio';
+    }
+    });
+
+
 })
 
 // alert("Welcome to TETRIS");
-// alert("Use the up-arrow key to spin the block.");
+// alert(promptUserName());
+
+// function promptUserName() {
+//     let name = prompt("What is your name?");
+//     name = name.toUpperCase(); {
+//         if (name === "");
+//         prompt("Invalid response. Please Enter your name."); 
+//         promptUserName()
+//     }
+// }
+// alert("Hi, " + name + "!");
+// alert("Your goal in 1-Player mode is to beat the computers High Score.");
 // alert("Use the down-arrow key to move the block down.");
 // alert("Use the left-arrow key to move the block left.");
 // alert("Use the right-arrow key to move the block right.");
 // alert("Gain points by completing a line.");
 // alert("If you have any questions, visit the 'Help' page.");
-// alert(`Press the Start Button when you\'re ready to play. HAVE FUN!!`);
+alert(`Ok, ` + name + ` let\'s go! Press the Start Button when you\'re ready to play. HAVE FUN!!`);
+
+
+//^ one player mode will get 2 tries to 'beat the computer'. the win state will be a high score that needs
+//^ to be reached in order to win.
+
+
+
+

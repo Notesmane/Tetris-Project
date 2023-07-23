@@ -3,6 +3,8 @@
 
     Game build Using The DOM
 
+    live github project link: https://notesmane.github.io/Tetris-Project/
+
 ## Tech Stack
     1. HTML
     2. CSS

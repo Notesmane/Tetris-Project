@@ -32,7 +32,7 @@ html {
 main {
     align-content: start;
     display: flex;
-    height: 600px;
+    /* height: 600px; */
     font-size: 24px;
     display: flex;
     justify-content: center;
@@ -53,9 +53,9 @@ section {
     /* background-color: #164B60; */
     /* float: left; */
     /* width: 100px; */
-    height: 150px;
-    margin-bottom: 10%;
-    padding: 0%;
+    height: 50px;
+    /* margin-bottom: 10%; */
+    padding: 10px;
     border: none;
     list-style: none;
     clear: both;
@@ -76,8 +76,8 @@ section {
   }  */
 
   #titleDiv {
-    padding: 10px 0px, 10px, 0px;
-    margin: 0px, 20px, 0px, 20px;
+    padding: 10px 0px 10px 0px;
+    margin: 0px 0px 0px 0px;
     background-color: rgb(4, 0, 44);
     border: 2px ridge rgb(184,69, 178);
     border-radius: 10px;
@@ -89,8 +89,34 @@ section {
     justify-content: center;
   }
 
+  #logoDiv {
+    width: 155px;
+    height: 35px;
+    background-color: white;
+    display: flex;
+  }
+
+  #logoDiv div {
+    width: 5px;
+    height: 5px;
+  }
+
+  #logoT {
+    background-color: red;
+  }
+
+  #logoE {
+    background-color: blue;
+  }
+
   h1 {
     color: white;
+    height: 100px;
+    padding: 0px 0px 0px 0px;
+  }
+
+  h4 {
+    height: 100px;
   }
   
   #help {
@@ -107,6 +133,10 @@ section {
     justify-content: center;
   }
 
+  #playerSelector {
+    height: 500px;
+    padding-top: 200px;
+  }
 
   h3 {
     color: white;
@@ -121,12 +151,24 @@ section {
     background-color: #4FC0D0;
   } */
 
+  footer {
+    padding-top: 50px;
+    margin: 0px;
+    border: 0px;
+  }
 
   footer div {
     font-size: 11px;
     display: flex;
     justify-content: center;
     color: rgb(114, 71, 108);
+    padding: 0px;
+    margin: 0px;
+    border: 0px;
+  }
+
+  #copyrights {
+    margin-bottom: 20px;
   }
 
   a:link {
@@ -143,6 +185,15 @@ section {
     text-shadow: white 1px 0 5px;
   }
 
-  a:active{
+  a:active {
     color: white;
+  }
+
+  #webLinks {
+    background-color:  rgb(43, 38, 101);
+    margin: 20px 20px 10px 20px;
+    width: 70px;
+    display: flex;
+    justify-content: center;
+    border: 2px ridge rgb(43, 38, 101);
   }

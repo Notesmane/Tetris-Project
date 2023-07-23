@@ -9,27 +9,36 @@
 </head>
 <body>
     <header>
-        <div id="pageSelector">
-            <h3><a href="index.html">HOME</a></h3>
-        </div>
-        <div id="titleDiv">
-            <h1>TETRIS</h1>
-        </div>
-        <div id="pageSelector">
-            <h3><a href="help.html">HELP</a></h3>
+        <div>
+            <!-- <div id="titleLinks"> -->
+                <h3><a href="index.html">HOME</a></h3>
+            <!-- </div>
+            <div id="titleLinks"> -->
+                <h3>TETRIS</h3>
+            <!-- </div>
+            <div id="titleLinks"> -->
+                <h3><a href="help.html">HELP</a></h3>
+            <!-- </div> -->
         </div>
     </header>
         <Main>
             <section>
                 <div id="buttons">
-                    <div>
-                        <button id="start-button">Start/Pause</button>
+                    <div id="startBox">
+                        <button id="start-button">
+                            <img src="./buttonPower.png" alt="Start Button" title="Start/Stop Game">
+                        </button>
                     </div>
-                    <div>
-                        <button id="restart-btn">Restart</button>
+                    <div id="restartBox">
+                        <button id="restart-btn">
+                            <img src="./buttonRestart.png" alt="Restart Button" title="Restart Game">
+                        </button>
                     </div>
-                    <div>
-                        <button id="music-btn">Music On/Off</button>
+                    <div id="musicBox">
+                        <button id="music-btn">
+                            <audio id="audioPlayer" src="musicTrap.mp3"></audio>
+                            <img src="./buttonMusic.png" alt="Music Button" title="Start/Stop Music">
+                        </button>
                     </div>
                 </div>
                 <div id="levelBox">
@@ -44,6 +53,14 @@
                     </div>
                     <div id="lowerBoxes">
                         <h2 id="score">0</h2>
+                    </div>
+                </div>
+                <div id="compBox">
+                    <div>
+                        <h3 id="titleBoxes">COMP SCORE</h3>
+                    </div>
+                    <div id="lowerBoxes">
+                        <h2 id="computerScore" title="SCORE TO BEAT">0</h2>
                     </div>
                 </div>
             </section>
@@ -379,13 +396,41 @@
                 </div> -->
             <!-- </section> -->
         </Main>
-    <footer>
-        <div>
-            <p>Website powered by: NotesMane of Noteworthy Productions</p>
-            <br>
-            <p>All Rights Reserved. Copyright, NYC - 2023 <a href="https://github.com/Notesmane" target="_blank">https://github.com/Notesmane</a> </p>
-        </div>
-    </footer>
+        <footer>
+            <div>
+                <div id="webLinks">
+                    <a href="https://www.twitch.tv/" target="_blank">
+                        <img src="./smallTwitch.png" alt="Twitch Button">
+                    </a>
+                </div>
+                <div id="webLinks">
+                    <a href="https://www.instagram.com/" target="_blank">
+                        <img src="./smallInstagram.png" alt="Instagram Button">
+                    </a>
+                </div>
+                <div id="webLinks">
+                    <a href="https://www.apple.com/app-store/" target="_blank">
+                        <img src="./smallDownload.png" alt="Download Button">
+                    </a>
+                </div>
+                <div id="webLinks">
+                    <a href="https://www.facebook.com/" target="_blank">
+                        <img src="./smallMeta.png" alt="Meta Button">
+                    </a>
+                </div>
+                <div id="webLinks">
+                    <a href="https://twitter.com/" target="_blank">
+                        <img src="./smallTwitter.png" alt="Twitter Button">
+                    </a>
+                </div>
+            </div>
+            <div>
+                <p>Website powered by: NotesMane of Noteworthy Productions   |   All Rights Reserved. Copyright, NYC - 2023</p>
+            </div>
+            <div id="copyrights">
+                <p id="gitHub"><a href="https://github.com/Notesmane" target="_blank"> https://github.com/Notesmane</a></p>
+            </div>
+        </footer>
 </body>
 </html>
 
