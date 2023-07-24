@@ -55,6 +55,10 @@ main {
     color: white;
   }
   
+a#start-button:hover {
+  background-color: white;
+}
+
 /* =========================================== HEADER CONTENT  */
 
   header {
@@ -100,7 +104,8 @@ main {
   }
 
   header div {
-    width: 308px;
+    width: 508px;
+    margin: 20px 0px 30px 0px;
     flex: left;
     display: flex;
     justify-content: space-between;
@@ -146,7 +151,7 @@ main {
     width: 55px;
   } */
 
-  #music-btn {
+  #musicBtn {
     padding: 0px;
     margin: 0px;
     background-color: rgba(135, 193, 227, .9);
@@ -179,6 +184,8 @@ main {
   }
 
   .fallingBlockGrid > div {
+    /* border: 5px ridge rgb(155,190, 220);
+    border-radius: 5px; */
     height: 30px;
     width: 30px;
     /* border: .5px solid #144457; */
@@ -186,8 +193,8 @@ main {
 
   .tetros {
     /* background-color: red; */
-    border: 5px solid rgb(155,190, 220);
-    border-style: inset;
+    border: 1px ridge rgb(184,69, 178);; 
+    /* border-style: inset;
     /* -moz-box-shadow: 2px 2px 8px 2px rgba(165,165,165,1); */
     border-radius: 5px;
   }
@@ -211,7 +218,8 @@ main {
   } */
   
   #nextBox {
-    padding: 0px;
+    padding: 0px 0px 0px 0px;
+    margin: 0px 0px 0px 0px;
   }
 
   .next-block {           /*aka mini-grid */
@@ -264,9 +272,9 @@ main {
     margin: 20px;
   }
 
-  footer {
-    /* padding: 30px; */
-  }
+  /* footer {
+    padding: 30px;
+  } */
 
   footer div {
     font-size: 11px;
@@ -293,9 +301,14 @@ main {
     color: white;
   }
 
+  a.musicBox:hover {
+    border: 3px ridge rgb(135, 193, 227);
+    transition: 0.7s;
+  }
+
   #webLinks {
     background-color:  rgb(43, 38, 101);
-    margin: 60px 20px 10px 20px;
+    margin: 30px 20px 10px 20px;
     width: 50px;
     display: flex;
     justify-content: center;

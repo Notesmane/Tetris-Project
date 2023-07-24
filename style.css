@@ -53,9 +53,9 @@ section {
     /* background-color: #164B60; */
     /* float: left; */
     /* width: 100px; */
-    height: 50px;
-    /* margin-bottom: 10%; */
-    padding: 10px;
+    height: 77px;
+    margin-top: 100px;
+    /* padding: 10px; */
     border: none;
     list-style: none;
     clear: both;
@@ -76,22 +76,22 @@ section {
   }  */
 
   #titleDiv {
-    padding: 10px 0px 10px 0px;
+    /* padding: 10px 0px 10px 0px; */
     margin: 0px 0px 0px 0px;
-    background-color: rgb(4, 0, 44);
-    border: 2px ridge rgb(184,69, 178);
+    /* background-color: rgb(4, 0, 44);
+    border: 2px ridge rgb(184,69, 178); */
     border-radius: 10px;
     /* position: relative; */
-    height: 50px;
-    width: 150px;
+    height: 77px;
+    width: 340px;
     float: left;
     display: flex;
     justify-content: center;
   }
 
   #logoDiv {
-    width: 155px;
-    height: 35px;
+    /* width: 555px;
+    height: 35px; */
     background-color: white;
     display: flex;
   }
@@ -134,8 +134,9 @@ section {
   }
 
   #playerSelector {
-    height: 500px;
-    padding-top: 200px;
+    height: 300px;
+    padding-top: 100px;
+    padding-bottom: 100px
   }
 
   h3 {
@@ -174,22 +175,26 @@ section {
   a:link {
     color: white;
     text-shadow: white 1px 0 5px;
+    text-decoration: none;
   }
 
   a, a:link, a:visited {
     color: rgb(114, 39, 82);
+    text-decoration: none;
   }
 
   a:hover {
     color: white;
     text-shadow: white 1px 0 5px;
+    text-decoration: none;
   }
 
   a:active {
     color: white;
+    text-decoration: none;
   }
 
-  #webLinks {
+  .webLinks {
     background-color:  rgb(43, 38, 101);
     margin: 20px 20px 10px 20px;
     width: 70px;
@@ -197,3 +202,5 @@ section {
     justify-content: center;
     border: 2px ridge rgb(43, 38, 101);
   }
+
+  

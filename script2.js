@@ -44,9 +44,10 @@ document.addEventListener('DOMContentLoaded', () => { // this fires as soon as t
     const startBtn = document.querySelector('#start-button')
     // const musicBtn = document.querySelector('#music-btn')
     const width = 10 // tells the width of the falling Brick window, this will be used for the shape arrays
-    let nextRandom = 0
+    // let nextRandom = 0
     let timerId
-    let score = 500
+    let score = 0
+    let score2 = 0
     let level = 1
     let line = 0
     // let audio = new Audio('musicCyberPunk.mp3');
@@ -59,8 +60,6 @@ document.addEventListener('DOMContentLoaded', () => { // this fires as soon as t
         '#FF0000',
         '#00FFFF',
     ]
-
-    //^ ========================================= end of intitally defined variables
 
     const music = [
         './musicCyberPunk.mp3',
@@ -81,85 +80,40 @@ function playNextRandomMusic() {
 
   // Select a random index from the musicList array
   currentSongIndex = Math.floor(Math.random() * music.length);
-
   // Get the selected music URL from the array
   const selectedMusic = music[currentSongIndex];
-
   // Create an HTML audio element
   audio = new Audio(selectedMusic);
-
   // Play the selected music
   audio.play();
-
   // Set the isPlaying flag to true
   isPlaying = true;
-
   // Add an event listener to the audio element to detect when the current song has ended
   audio.addEventListener('ended', playNextRandomMusic);
 }
 
 // Function to stop the music
 function stopMusic() {
-    if (audio) {
-        audio.pause();
-    }
-    isPlaying = false;
+  if (audio) {
+    audio.pause();
+  }
+  isPlaying = false;
 }
 
 // Function to handle the button click event
 function handleButtonClick() {
-    if (isPlaying) {
-        // If music is currently playing, stop it
-        stopMusic();
-    } else {
-        // If music is stopped, play the next random music
-        playNextRandomMusic();
-    }
+  if (isPlaying) {
+    // If music is currently playing, stop it
+    stopMusic();
+  } else {
+    // If music is stopped, play the next random music
+    playNextRandomMusic();
+  }
 }
-
 // Attach a click event listener to the playButton
 const musicBtn = document.getElementById('musicBtn');
 musicBtn.addEventListener('click', handleButtonClick);
 
-//^ ========================================= end of audio button section
-    // // play music function
-    // function playRandomMusic() {
-    //     // select a random index from the music list
-    //     const randomIndex = Math.floor(Math.random() * music.length);
-    //     // get the selected music URL from the array
-    //     const selectedMusic = music[randomIndex];
-    //     // create an HTML audio element
-    //     const audio = new Audio(selectedMusic);
-    //     // play tje selected music
-    //     audio.play();
-    // }
-
-    // // attach a click event listener to the playButton
-    // const musicBtn = document.getElementById('musicBtn');
-    // musicBtn.addEventListener('click', playRandomMusic);
-
-    // function getRandomTrack() {
-
-    //     return music[randomIndex];
-    // }
-
-    // function playSound() {
-    //     const soundFile = new Audio(getRandomTrack());
-    //     soundFile.play();
-    // }
-
-    // class Audio {
-    //     constructor(audioFile) {
-    //         this.audioFile = audioFile;
-    //     }
-    //     getAudio() {
-    //         return this.audioFile 
-    //     }
-    // }
-
-    // const music = [("musicCyberPunk.mp3")]
-
- 
     // the below declares all of the shapes and their variations by calling their corresponding cells within the falling brick window
     const bed = [
         [0, width, width*2, 1],
@@ -209,8 +163,6 @@ musicBtn.addEventListener('click', handleButtonClick);
 
     const blocks = [bed, box, zee, ess, midFinger, seven, flat]
 
-    //^ ========================================= end of block arrays
-
     let currentPosition = 4 // sets the starting position in the block box
     let currentRotation = 0 
 
@@ -236,8 +188,6 @@ musicBtn.addEventListener('click', handleButtonClick);
         })
     }
 
-    //^ ========================================= end of block draw and unDraw assignments, allowing the shapes to disappear when needed
-
     // make the blocks move down every second
     // timerId = setInterval(moveDown, 800) 
 
@@ -254,8 +204,6 @@ musicBtn.addEventListener('click', handleButtonClick);
         } 
     } 
     document.addEventListener('keydown', control) // send the function of contol to the browser when the key goes down
-
-    //^ ========================================= end of block movement/rotation button assignments
     
 
     // move down function
@@ -302,7 +250,7 @@ musicBtn.addEventListener('click', handleButtonClick);
 
     // move the block right, unless it is at the edge or there is a blockage
     function moveRight() {
-        unDraw() 
+        unDraw()
         const isAtRightEdge = currentBlock.some(index => (currentPosition + index) % width === width -1)
 
         if(!isAtRightEdge) currentPosition +=1
@@ -368,7 +316,7 @@ musicBtn.addEventListener('click', handleButtonClick);
             timerId = null
         } else {
             draw()
-            timerId = setInterval(moveDown, 200) //& THIS IS THE FIRST DIFFERENCE I CAN FIND, THE ORIGINAL WAS 800
+            timerId = setInterval(moveDown, 300)
             nextRandom = Math.floor(Math.random()*blocks.length)
             displayShape()
         }
@@ -387,13 +335,13 @@ musicBtn.addEventListener('click', handleButtonClick);
             if(row.every(index => squares[index].classList.contains('taken'))) {
                 score +=10
                 scoreDisplay.innerHTML = score
-                lineUp()
-                lineDisplay.innerHTML = line
                 levelUp()
                 levelDisplay.innerHTML = level
+                lineUp()
+                lineDisplay.innerHTML = line
                 // getRandomNumber()
                 // computerScoreDisplay.innerHTML = computerScore
-                // singlePlayerWin() //& this was also different in the other one it was activated so i activated it here too
+                singlePlayerWin()
                 row.forEach(index => {
                     squares[index].classList.remove('taken')
                     squares[index].classList.remove('tetros')
@@ -416,10 +364,9 @@ musicBtn.addEventListener('click', handleButtonClick);
     //     score += 2;
     // }
 
-
     // level up function //! if the score jumps over a multiple of 200 then the function doesnt trigger
     function levelUp() {
-        if (score >= 200 && score % 200 === 0) {
+        if (score >= 20 && score % 20 === 0) {
         level++;
         }
         timerId = setInterval(750)
@@ -432,45 +379,31 @@ musicBtn.addEventListener('click', handleButtonClick);
         }
     }
 
-    // Create a random number as computers High Score
-    function getRandomNumber(min, max) {
-        return Math.floor(Math.random() * (max - min +1)) + min;
-    }
+    // // Create a random number as computers High Score
+    // function getRandomNumber(min, max) {
+    //     return Math.floor(Math.random() * (max - min +1)) + min;
+    // }
 
-    let computerScore = getRandomNumber(500,1000);
-    computerScoreDisplay.innerHTML = computerScore
+    // let computerScore = getRandomNumber(500,1000);
+    // computerScoreDisplay.innerHTML = computerScore
 
-    // Player 1 mode Win State
-    function singlePlayerWin() {
-        if (score >= computerScore) {
-            clearInterval(timerId)
-            alert("Congratulations, you beat the computer!");
-            alert("Let\'s see if you can do it again!");
-            clearInterval(timerId)
-        } else {
-            alert("YOU LOSE! The computer beat your score!")
-            alert("Take another shot at beating the computer!");
-            clearInterval(timerId)
-        }
-        clearInterval(timerId)
-        location.replace() 
-    }
+
+
+    // // Player 1 mode Win State
+    // function singlePlayerWin() {
+    //     if (score >= computerScore) {
+    //         alert("Congratulations, you beat the computer!");
+    //         alert("Would you like to continue playing?");
+    //     }
+    // }
 
     // game over
     function gameOver() {
         if(currentBlock.some(index => squares[currentPosition + index].classList.contains('taken'))) {
             scoreDisplay.innerHTML = 'end'
             clearInterval(timerId)
-            singlePlayerWin();
         }
-        // if (score >= computerScore) {
-        //     alert("Congratulations, you beat the computer!");
-        //     alert("Would you like to continue playing?"); 
-        // } else {
-        //     alert("YOU LOSE! The computer beat your score!")
-        // }
     }
-
 
     // const playButton = document.getElementById('music-btn');
     // const audioPlayer = document.getElementById('audioPlayer');
@@ -512,3 +445,7 @@ musicBtn.addEventListener('click', handleButtonClick);
 
 //^ one player mode will get 2 tries to 'beat the computer'. the win state will be a high score that needs
 //^ to be reached in order to win.
+
+
+
+

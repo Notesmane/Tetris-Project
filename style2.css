@@ -22,7 +22,7 @@
   /*******************************************/
 
 html {
-    /* height: 700px; */
+    /* height: 800px; */
     background-image: url('bkimage4.jpg');
     background-size: cover;
     background-position: center center;
@@ -32,7 +32,6 @@ html {
 main {
   display: flex;
   justify-content: center;
-  height: 550px;
 }
 
   body {
@@ -56,59 +55,109 @@ main {
     color: white;
   }
   
+a#start-button:hover {
+  background-color: white;
+}
+
 /* =========================================== HEADER CONTENT  */
 
-header {
-  width: 100%;
-  /* height: 50px; */
-  /* margin-bottom: 40px;
-  padding: 5px; */
-  border: none;
-  list-style: none;
-  /* clear: both; */
-  display: flex;
-  justify-content: center;
-}
-
-header div {
-  width: 508px;
-  margin: 20px 0px 30px 0px;
-  flex: left;
-  display: flex;
-  justify-content: space-between;
-}
-
-  #titleDiv {
-    padding: 10px 0px, 10px, 0px;
-    margin: 0px, 20px, 0px, 20px;
-    background-color: rgb(4, 0, 44);
-    border: 2px ridge rgb(184,69, 178);
-    border-radius: 10px;
-    /* position: relative; */
-    height: 50px;
-    width: 150px;
-    float: left;
+  header {
+    width: 100%;
+    /* height: 50px; */
+    /* margin-bottom: 40px;
+    padding: 5px; */
+    border: none;
+    list-style: none;
+    /* clear: both; */
     display: flex;
     justify-content: center;
+  }
+
+  #titleDiv {
+    /* padding: 10px 0px, 10px, 0px;
+    margin: 0px, 20px, 0px, 20px; */
+    /* background-color: rgb(4, 0, 44);
+    border: 2px ridge rgb(184,69, 178); 
+    border-radius: 10px; */
+    /* position: relative; */
+
+    /* height: 50px;
+    width: 308px;
+    float: left;
+    display: flex;
+    justify-content: center; */
   }
 
   #pageSelector {
-    padding: 0px 0px 40px 0px;
-    background-color: rgb(135, 193, 227);
-    border: 2px ridge rgb(184,69, 178);
-    border-radius: 10px;
+    /* padding: 0px 0px 40px 0px; */
+    /* background-color: rgb(135, 193, 227); */
+    /* border: 2px ridge rgb(184,69, 178); */
+    /* border-radius: 10px; */
     /* position: relative; */
-    height: 20px;
-    width: 80px;
-    float: left;
+    /* float: left;
     display: flex;
-    justify-content: center;
+    justify-content: center; */
+
+
+    /* height: 20px;
+    width: 80px; */
   }
+
+  header div {
+    width: 508px;
+    margin: 20px 0px 30px 0px;
+    flex: left;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  #titleLinks {
+    padding: 0px;
+    margin: 0px;
+    border: 0px;
+    display: flex;
+    justify-content: space-between;
+  }
+
 
 /* ============================================ BEGINNING OF MAIN CONTENT */
 
   #buttons {
-    width: 184;
+    width: 188;
+    margin: 5px; 
+    display: flex;
+    justify-content: space-between;
+  }
+
+  #start-button {
+    padding: 0px;
+    margin: 0px;
+    background-color: rgba(135, 193, 227, .9);
+    border: 3px ridge rgb(135, 193, 227);
+    height: 40px;
+    width: 50px;
+  }
+
+  #restart-btn {
+    padding: 0px;
+    margin: 0px;
+    background-color: rgba(135, 193, 227, .9);
+    border: 3px ridge rgb(135, 193, 227);
+    height: 40px;
+    width: 50px;
+  }
+  /* #musicBox {
+    height: 55px;
+    width: 55px;
+  } */
+
+  #musicBtn {
+    padding: 0px;
+    margin: 0px;
+    background-color: rgba(135, 193, 227, .9);
+    border: 3px ridge rgb(135, 193, 227);
+    height: 40px;
+    width: 50px;
   }
 /* 
   #bigTitleBox {
@@ -124,10 +173,10 @@ header div {
   }*/
 
   .fallingBlockGrid{
-    background-color: rgb(4, 0, 44);/*#0F3442;*/
+    background-color: rgba(4, 0, 44, .98);/*#0F3442;*/
     width: 308px;
     height: 608px;
-    border: 2px ridge rgb(184,69, 178);
+    border: 3px ridge rgb(135, 193, 227);
     /* background-color: yellow; */
     display: flex; /*these two wrap the divs so they fit into their parent */
     flex-wrap: wrap;
@@ -135,17 +184,19 @@ header div {
   }
 
   .fallingBlockGrid > div {
+    /* border: 5px ridge rgb(155,190, 220);
+    border-radius: 5px; */
     height: 30px;
     width: 30px;
     /* border: .5px solid #144457; */
   }
 
   .tetros {
-    background-color: red;
-    border: 2px solid rgb(155,190, 220);
-    border-style: inset;
+    /* background-color: red; */
+    border: 1px ridge rgb(184,69, 178);; 
+    /* border-style: inset;
     /* -moz-box-shadow: 2px 2px 8px 2px rgba(165,165,165,1); */
-    border-radius: 3px;
+    border-radius: 5px;
   }
 
   .taken {
@@ -185,10 +236,10 @@ header div {
     /* border: 2px ridge rgb(184,69, 178); */
   }
 
-  #contolsTitleBox {
+  #titleBoxes {
     background-color: rgba(4, 0, 44, .8);
-    width: 150px;
-    height: 40px;
+    width: 184px;
+    height: 44px;
     border: 4px ridge rgb(184,69, 178);
     /* text-align: center; */
     float: left;
@@ -200,73 +251,29 @@ header div {
     /* padding: 0px 0px 70px 0px; */
   }
 
-  #controlsLowerBox {
+  
+  #lowerBoxes {
     background-color: rgba(4, 0, 44, .7);
-    width: 440px;
-    height: 320px;
-    border: 4px ridge rgb(184,69, 178);
-    float: left;
-    display: flex;
-    justify-content: left;
-  }
-
-  #rulesTitleBox {
-    background-color: rgba(4, 0, 44, .8);
-    width: 189px;
-    height: 40px;
-    border: 4px ridge rgb(184,69, 178);
-    /* text-align: center; */
-    float: left;
-    display: flex;
-    justify-content: left;
-    border-radius: 5px 5px 0px 0px;
-    margin-bottom: 0px;
-    padding: 10px 10px 10px 7px;
-    /* padding: 0px 0px 70px 0px; */
-  }
-
-  #rulesLowerBox {
-    background-color: rgba(4, 0, 44, .7);
-    width: 374px;
-    height: 138px;
+    width: 184px;
+    height: 84px;
     border: 4px ridge rgb(184,69, 178);
     float: left;
     display: flex;
     justify-content: center;
   }
 
-  #singleTitleBox {
-    background-color: rgba(4, 0, 44, .8);
-    width: 244px;
-    height: 40px;
-    border: 4px ridge rgb(184,69, 178);
-    /* text-align: center; */
-    float: left;
+  /* #compBox {
     display: flex;
-    justify-content: left;
-    border-radius: 5px 5px 0px 0px;
-    margin-bottom: 0px;
-    padding: 10px 10px 10px 7px;
-    /* padding: 0px 0px 70px 0px; */
-  }
-
-  #singleLowerBox {
-    background-color: rgba(4, 0, 44, .7);
-    width: 383px;
-    height: 125px;
-    border: 4px ridge rgb(184,69, 178);
-    float: left;
-    display: flex;
-    justify-content: center;
-  }
+    align-items: flex-end;
+  } */
 
   section {
     margin: 20px;
   }
 
-  footer {
+  /* footer {
     padding: 30px;
-  }
+  } */
 
   footer div {
     font-size: 11px;
@@ -275,36 +282,33 @@ header div {
     color: rgb(114, 71, 108);
   }
 
-  #copyrights {
-    margin-bottom: 20px;
-  }
-
   a:link {
     color: white;
     text-shadow: white 1px 0 5px;
-    text-decoration: none;
   }
 
   a, a:link, a:visited {
     color: rgb(114, 39, 82);
-    text-decoration: none;
   }
 
   a:hover {
     color: white;
     text-shadow: white 1px 0 5px;
-    text-decoration: none;
   }
 
   a:active {
     color: white;
-    text-decoration: none;
   }
 
-  .webLinks {
+  a.musicBox:hover {
+    border: 3px ridge rgb(135, 193, 227);
+    transition: 0.7s;
+  }
+
+  #webLinks {
     background-color:  rgb(43, 38, 101);
-    margin: 20px 20px 10px 20px;
-    width: 70px;
+    margin: 60px 20px 10px 20px;
+    width: 50px;
     display: flex;
     justify-content: center;
     border: 2px ridge rgb(43, 38, 101);
